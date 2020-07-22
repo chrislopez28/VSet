@@ -1,22 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <transition name="fade">
+      <app-title-screen v-if="$store.state.showTitleScreen"></app-title-screen> 
+    </transition>
+    <transition name="fade">
+        <app-game-over v-if="$store.state.showResults"></app-game-over> 
+    </transition>
+    <app-sidebar></app-sidebar>
+    <app-game></app-game>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Game from "./components/game/Game.vue";
+
+import GameOverScreen from "./components/layout/GameOverScreen.vue";
+import Sidebar from "./components/layout/Sidebar.vue";
+import TitleScreen from "./components/layout/TitleScreen.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    appGame: Game,
+    appGameOver: GameOverScreen,
+    appSidebar: Sidebar,
+    appTitleScreen: TitleScreen
   }
 };
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Raleway&display=swap");
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -24,5 +40,28 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: 0 0 0 0;
+}
+
+
+.fade-leave-active {
+  transition: opacity 3s;
+}
+.fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
