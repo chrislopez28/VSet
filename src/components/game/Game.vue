@@ -204,7 +204,6 @@ export default {
     height: 100%;
     width: 100%;
     top: 0px;
-    bottom: 0px;
     left: 0px;
 }
 

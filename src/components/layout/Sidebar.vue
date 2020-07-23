@@ -62,7 +62,7 @@ export default {
     z-index: 10;
     padding: 10px;
     font-family: 'Raleway', sans-serif;
-    bottom: 0px;
+    top: 0px;
     left: 0px;
     overflow: auto;
 }
