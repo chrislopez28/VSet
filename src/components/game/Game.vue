@@ -341,13 +341,46 @@ tr {
   }
 }
 
-@media (min-width: 480px) {
+/*
+@media (min-width: 480px) and (max-height: 450) {
   .cards {
-    width: 700px;
+    width: 450px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 }
+*/
+
+@media (min-width: 480px) {
+  .cards {
+    width: 360px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (min-width: 801px) {
+  .cards {
+    width: 550px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (min-width: 801px) and (max-height: 500px) {
+  .cards {
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 </style>
