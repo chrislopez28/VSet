@@ -51,23 +51,48 @@ export default {
 
 <style scoped>
 
-.sidebar {
-    position: absolute;
-    background: rgb(255, 245, 104);
-    border: lightyellow 2px solid;
-    width: 240px;
-    height: 100vh; 
-    z-index: 10;
-    padding: 10px;
-    font-family: 'Raleway', sans-serif;
-    top: 0px;
-    left: 0px;
-    overflow: auto;
+@media (min-width:320px) {
+    .sidebar {
+        position: absolute;
+        background: rgb(255, 245, 104);
+        border: lightyellow 2px solid;
+        width: 100%;
+        height: 100vh; 
+        z-index: 10;
+        padding: 10px;
+        font-family: 'Raleway', sans-serif;
+        top: 0px;
+        left: 0px;
+        overflow: auto;
+    }
+
+    .sidebar.close {
+        transform: translateX(-320px)
+    }
 }
 
-.sidebar.close {
-    transform: translateX(-240px)
+@media (min-width:480px) {
+    .sidebar {
+        position: absolute;
+        background: rgb(255, 245, 104);
+        border: lightyellow 2px solid;
+        width: 240px;
+        height: 100vh; 
+        z-index: 10;
+        padding: 10px;
+        font-family: 'Raleway', sans-serif;
+        top: 0px;
+        left: 0px;
+        overflow: auto;
+    }
+
+    .sidebar.close {
+        transform: translateX(-240px)
+    }
+
 }
+
+
 
 button, input[type="submit"], input[type="reset"] {
 	background: none;

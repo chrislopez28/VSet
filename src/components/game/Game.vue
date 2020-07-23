@@ -34,6 +34,8 @@
         <button @click="getHint" class="button">Hint</button>
         <button class="button">Pause</button>
         <button @click="endGame" class="button">Quit</button>
+      </div>
+      <div v-show="getGameStatus" class="score-bar">
         <div
           style="display: inline-block; font-size: x-large; margin-left: 10px;"
         >
@@ -184,7 +186,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+</style>
+
+<style scoped>
 .game {
   position: absolute;
   height: 100%;
@@ -208,7 +214,6 @@ export default {
   float: none;
   padding: 20px;
   background: whitesmoke;
-  /* background: #8dd7bf; */
   display: flex;
   height: 75%;
   padding-top: auto;
@@ -242,13 +247,6 @@ tr {
   font-family: "Raleway", sans-serif;
 }
 
-.cards {
-  width: 700px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 .controls {
   height: 25%;
@@ -258,7 +256,6 @@ tr {
   text-align: center;
   left: 0;
   bottom: 0;
-
   font-family: "Caveat", cursive;
 }
 
@@ -292,8 +289,13 @@ tr {
 
 .stat-bar {
   background: #00a5e3;
-  padding: 2em;
+  padding: 2px;
+  text-align: center;
+}
 
+.score-bar {
+  background: #00a5e3;
+  padding: 2px;
   text-align: center;
 }
 
@@ -309,8 +311,8 @@ tr {
   color: black;
   border: 3px solid black;
   border-radius: 10px;
-  height: 150px;
-  width: 300px;
+  height: 150rem;
+  width: 300rem;
 }
 
 .message-box {
@@ -333,4 +335,27 @@ tr {
   z-index: 15;
   font-family: "Raleway", sans-serif;
 }
+
+@media (min-width:320px) {
+    .cards {
+        width: 360px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (min-width:480px) {
+    .cards {
+        width: 700px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+
 </style>
