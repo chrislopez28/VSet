@@ -1,11 +1,13 @@
 # VSet
 
-VSet is based on the incredibly fun card game SET®. If you like this app, please consider supporting the makers of this game by purchasing a deck of cards or by downloading the official app on iOS or Android.
-
-## Link to Play!
+## Play
 https://chrislopez28.github.io/vset/ 
 
 ## Overview
+
+VSet is based on the incredibly fun card game SET®. If you like this app, please consider supporting the makers of this game by purchasing a deck of cards or by downloading the official app on iOS or Android.
+
+## Cards
 
 Each card is characterized by 4 properties
 
