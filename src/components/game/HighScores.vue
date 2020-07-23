@@ -55,7 +55,13 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+
+export default {
+  computed: {
+    ...mapGetters(["getGameStatus"])
+  }
+};
 </script>
 
 <style scoped>

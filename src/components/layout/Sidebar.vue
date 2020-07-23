@@ -5,13 +5,14 @@
         <p>
             VSet is based on the incredibly fun card game <a href="https://www.playmonster.com/product/set/">SET&reg;</a>.
             If you like this app, please consider supporting the makers of this game by purchasing a deck of cards or
-            by downloading the official app on iOS or Android. 
+            by downloading the official app on iOS or Android (I'm not affiated with either the game makers or app 
+            developer. I'm just a fan &#128515;).
         </p>
 
         <h2>Rules</h2>
         <p>
             Each card is characterized by
-            <b>4 properties</b>
+            <b>4 properties</b>:
             <ul>
                 <li><u>Number</u>: 1, 2, or 3</li>
                 <li><u>Shape</u>: Diamond, Oval, or Squiggle</li>
@@ -89,10 +90,7 @@ export default {
     .sidebar.close {
         transform: translateX(-240px)
     }
-
 }
-
-
 
 button, input[type="submit"], input[type="reset"] {
 	background: none;

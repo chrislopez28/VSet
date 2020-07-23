@@ -187,10 +187,6 @@ export default {
 </script>
 
 <style scoped>
-
-</style>
-
-<style scoped>
 .game {
   position: absolute;
   height: 100%;
@@ -246,7 +242,6 @@ th {
 tr {
   font-family: "Raleway", sans-serif;
 }
-
 
 .controls {
   height: 25%;
@@ -336,26 +331,23 @@ tr {
   font-family: "Raleway", sans-serif;
 }
 
-@media (min-width:320px) {
-    .cards {
-        width: 360px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+@media (min-width: 320px) {
+  .cards {
+    width: 360px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
-@media (min-width:480px) {
-    .cards {
-        width: 700px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+@media (min-width: 480px) {
+  .cards {
+    width: 700px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
-
-
-
 </style>

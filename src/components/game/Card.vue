@@ -101,9 +101,8 @@ export default {
 </script>
 
 <style scoped>
-
 @media (min-width: 320px) {
-    .card {
+  .card {
     height: 87.5px;
     width: 62.5px;
     float: left;
@@ -112,34 +111,33 @@ export default {
     border: black 2px solid;
     border-radius: 10px;
     background: white;
-    }
+  }
 
-    .card img {
+  .card img {
     float: center;
     height: 87.5px;
     width: 62.5px;
-    }
+  }
 }
 
 @media (min-width: 480px) {
-    .card {
-        height: 122.5px;
-        width: 87.5px;
-        float: left;
-        padding: 0;
-        margin: 5px;
-        border: black 2px solid;
-        border-radius: 10px;
-        background: white;
-    }
+  .card {
+    height: 122.5px;
+    width: 87.5px;
+    float: left;
+    padding: 0;
+    margin: 5px;
+    border: black 2px solid;
+    border-radius: 10px;
+    background: white;
+  }
 
-    .card img {
-        float: center;
-        height: 122.5px;
-        width: 87.5px;
-    }
+  .card img {
+    float: center;
+    height: 122.5px;
+    width: 87.5px;
+  }
 }
-
 
 .select {
   border: orange 2px solid;

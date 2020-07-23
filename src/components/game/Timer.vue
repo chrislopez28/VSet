@@ -1,7 +1,7 @@
 <template>
   <span>
     Timer:
-    <span v-if="getTimerSetting">{{ time }}</span>
+    <span v-if="getTimerSetting">{{ minutes }}:{{ seconds }}</span>
   </span>
 </template>
 
@@ -25,7 +25,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["getTimerSetting"])
+    ...mapGetters(["getTimerSetting"]),
+    minutes: function() {
+      return Math.floor(this.time / 60)
+    },
+    seconds: function() {
+      return ((this.time - this.minutes * 60) < 10 ? '0' : '') + (this.time - this.minutes * 60);
+    }
   },
   watch: {
     getTimerSetting: function() {
