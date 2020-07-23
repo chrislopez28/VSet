@@ -1,14 +1,13 @@
 <template>
   <div id="app">
     <transition name="fade">
-      <app-title-screen v-if="$store.state.showTitleScreen"></app-title-screen> 
+      <app-title-screen v-if="$store.state.showTitleScreen"></app-title-screen>
     </transition>
     <transition name="fade">
-        <app-game-over v-if="$store.state.showResults"></app-game-over> 
+      <app-game-over v-if="$store.state.showResults"></app-game-over>
     </transition>
     <app-sidebar></app-sidebar>
     <app-game></app-game>
-
   </div>
 </template>
 
@@ -43,19 +42,17 @@ export default {
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 
 body {
-    height: 100%;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
 }
-
 
 .fade-leave-active {
   transition: opacity 3s;

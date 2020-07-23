@@ -23,10 +23,8 @@
             combinations of <b>3 cards</b> where each of the 4
             properties are either all <b>the same</b> or all <b>different</b>.
         </p>
-
-
         <p>
-            The code for this app can be found on <a href="">Github</a>.
+            <a href="https://github.com/chrislopez28/vset" target="_blank">Github</a>.
         </p>
     </aside>
     </transition>
