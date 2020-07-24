@@ -10,7 +10,9 @@
     </div>
 
     <div class="board">
-      <app-high-scores v-show="!getGameStatus"></app-high-scores>
+      <div v-show="!getGameStatus" class="main-screen">
+        <button @click="startGame" class="button button-new-game">Play!</button>
+      </div>
       <ul v-show="getGameStatus" class="cards">
         <app-card
           v-for="(card, index) in getCards"
@@ -24,11 +26,6 @@
     </div>
 
     <div class="controls">
-      <div v-show="!getGameStatus" class="stat-bar">
-        <button @click="startGame" class="button button-new-game">Play!</button>
-        <div class="message-box">{{ message }}</div>
-      </div>
-
       <div v-show="getGameStatus" class="stat-bar">
         <button @click="noSets" class="button">No Sets</button>
         <button @click="getHint" class="button">Hint</button>
@@ -50,7 +47,6 @@
 <script>
 import Card from "./Card.vue";
 import Timer from "./Timer.vue";
-import HighScores from "./HighScores.vue";
 import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
 
@@ -180,7 +176,6 @@ export default {
   },
   components: {
     appCard: Card,
-    appHighScores: HighScores,
     appTimer: Timer
   }
 };
@@ -222,6 +217,15 @@ export default {
   width: 500px;
   position: absolute;
   top: 30px;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  text-align: center;
+}
+
+.main-screen {
+  width: 500px;
+  position: absolute;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -10px);
   text-align: center;
@@ -271,6 +275,7 @@ tr {
 .button-new-game {
   width: 200px;
   font-size: xx-large;
+  margin: auto;
 }
 
 .button:hover {
@@ -340,18 +345,6 @@ tr {
     transform: translate(-50%, -50%);
   }
 }
-
-/*
-@media (min-width: 480px) and (max-height: 450) {
-  .cards {
-    width: 450px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-*/
 
 @media (min-width: 480px) {
   .cards {
