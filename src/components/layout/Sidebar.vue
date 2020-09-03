@@ -3,10 +3,7 @@
     <aside class="sidebar" v-show="getSidebarSetting">
         <h1><a href="">VSet</a></h1>
         <p>
-            VSet is based on the incredibly fun card game <a href="https://www.playmonster.com/product/set/">SET&reg;</a>.
-            If you like this app, please consider supporting the makers of this game by purchasing a deck of cards or
-            by downloading the official app on iOS or Android (I'm not affiated with either the game makers or app 
-            developer. I'm just a fan &#128515;).
+            VSet is based on the card game <a href="https://en.wikipedia.org/wiki/Set_(card_game)"><i>Set</i></a>.
         </p>
 
         <h2>Rules</h2>
@@ -19,7 +16,6 @@
                 <li><u>Shading</u>: Solid, Striped, or Open</li>
                 <li><u>Color</u>: Green, Red, or Purple</li>
             </ul>
-
             The objective of the game is to find <b><i>"sets"</i></b>. Sets are 
             combinations of <b>3 cards</b> where each of the 4
             properties are either all <b>the same</b> or all <b>different</b>.
