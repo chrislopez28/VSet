@@ -20,12 +20,18 @@ Each card is characterized by 4 properties:
 
 Example 1:
 
+![example 1](https://raw.githubusercontent.com/chrislopez28/vset/master/src/assets/example1.PNG)
+
 This is a set since each card has a different number (1, 2, 3); the same shape (dimaond); a different shading (open, solid, striped); and a different color (green, red, purple).
 
 Example 2:
 
+![example 2](https://raw.githubusercontent.com/chrislopez28/vset/master/src/assets/example2.PNG)
+
 This is a set since each card has the same number (2); the same shape (oval); the same color (purple); and a different shading (open, striped, solid).
 
 Example 3:
+
+![example 3](https://raw.githubusercontent.com/chrislopez28/vset/master/src/assets/example3.PNG)
 
 This is a set since each card has a different shape (oval, diamond, squiggle); a different color (red, purple, green); a different number (3, 2, 1); and a different shading (open, striped, solid).
