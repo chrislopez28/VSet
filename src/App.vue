@@ -8,15 +8,18 @@
     </transition>
     <app-sidebar></app-sidebar>
     <app-game></app-game>
+    <app-pause v-if="getPauseStatus"></app-pause>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import Game from "./components/game/Game.vue";
 
 import GameOverScreen from "./components/layout/GameOverScreen.vue";
 import Sidebar from "./components/layout/Sidebar.vue";
 import TitleScreen from "./components/layout/TitleScreen.vue";
+import PauseScreen from "./components/layout/PauseScreen.vue";
 
 export default {
   name: "App",
@@ -24,7 +27,13 @@ export default {
     appGame: Game,
     appGameOver: GameOverScreen,
     appSidebar: Sidebar,
-    appTitleScreen: TitleScreen
+    appTitleScreen: TitleScreen,
+    appPause: PauseScreen
+  },
+  computed: {
+    ...mapGetters([
+      "getPauseStatus"
+    ])
   }
 };
 </script>

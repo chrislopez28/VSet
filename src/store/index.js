@@ -12,6 +12,7 @@ export const store = new Vuex.Store({
     score: 0,
     activeGame: false,
     showTitleScreen: true,
+    pausedGame: false,
     showResults: false,
     timerOn: false,
     sidebarOn: true,
@@ -27,6 +28,7 @@ export const store = new Vuex.Store({
     getGameStatus: state => {
       return state.activeGame;
     },
+    getPauseStatus: state => state.pausedGame,
     getHintStatus: state => id => {
       return state.cards[id].hint;
     },
@@ -183,6 +185,9 @@ export const store = new Vuex.Store({
     },
     toggleGameStatus: state => {
       state.activeGame = !state.activeGame;
+    },
+    togglePauseStatus: state => {
+      state.pausedGame = !state.pausedGame;
     },
     toggleSidebar: state => {
       state.sidebarOn = !state.sidebarOn;

@@ -1,5 +1,5 @@
 <template>
-  <div class="game">
+  <div class="game" :class="{ paused: getPauseStatus }">
     <button class="sidebar-control" @click="clickSidebarControl">
       <span v-if="getSidebarSetting">x</span>
       <span v-else>&#8594;</span>
@@ -30,7 +30,7 @@
         <div class="button-bar">
           <button @click="noSets" class="button">No Sets</button>
           <button @click="getHint" class="button">Hint</button>
-          <button class="button">Pause</button>
+          <button @click="togglePauseStatus" class="button">Pause</button>
           <button @click="endGame" class="button">Quit</button>
         </div>
       </div>
@@ -81,7 +81,8 @@ export default {
       "updateScore",
       "displayResults",
       "toggleGameStatus",
-      "toggleSidebar"
+      "toggleSidebar",
+      "togglePauseStatus"
     ]),
     getHint: function() {
       if (this.giveHintIndex) {
@@ -182,6 +183,7 @@ export default {
       "anySets",
       "getCards",
       "getGameStatus",
+      "getPauseStatus",
       "getSidebarSetting",
       "getScore",
       "getSelected",
@@ -216,6 +218,14 @@ export default {
     width: 100%;
     top: 0px;
     left: 0px;
+  }
+
+  .paused {
+    filter: blur(20px);
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
   }
 
   .sidebar-control {
