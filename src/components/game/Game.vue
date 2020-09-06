@@ -30,7 +30,7 @@
         <div class="button-bar">
           <button @click="noSets" class="button">No Sets</button>
           <button @click="getHint" class="button">Hint</button>
-          <button @click="togglePauseStatus" class="button">Pause</button>
+          <button @click="pauseGame" class="button">Pause</button>
           <button @click="endGame" class="button">Quit</button>
         </div>
       </div>
@@ -78,6 +78,7 @@ export default {
       "removeSet",
       "addThree",
       "replaceSet",
+      "toggleTimer",
       "updateScore",
       "displayResults",
       "toggleGameStatus",
@@ -101,12 +102,18 @@ export default {
       this.resetGame();
       this.createDeck();
       this.toggleGameStatus();
+      this.toggleTimer();
+    },
+    pauseGame: function() {
+      this.togglePauseStatus();
+      this.toggleTimer();
     },
     endGame: function() {
       if (confirm("Press OK if you want to quit the current game.")) {
         this.applauseSound.play();
         this.displayResults();
         this.toggleGameStatus();
+        this.toggleTimer();
       }
     },
     unSelect: function() {

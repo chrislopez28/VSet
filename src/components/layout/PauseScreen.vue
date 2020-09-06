@@ -1,21 +1,41 @@
 <template>
     <div class="paused">
         <h1>Game Paused</h1>
-        <button @click="togglePauseStatus" class="button">
+        <h2>Score: {{ getScore }}</h2>
+        <h2>Sets: {{ numberSets }}</h2>
+        <h2><app-timer></app-timer></h2>
+        <button @click="unpauseGame" class="button">
             Return to Game
         </button>
     </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
 
+import Timer from "../game/Timer.vue";
+
 export default {
-    methods: {
-        ...mapMutations([
-        "togglePauseStatus"
-        ])
+  methods: {
+    ...mapMutations([
+      "togglePauseStatus",
+      "toggleTimer"
+    ]),
+    unpauseGame: function() {
+      this.togglePauseStatus();
+      this.toggleTimer();
     }
+  },
+  computed: {
+  ...mapGetters([
+      "getScore",
+      "numberSets"
+    ])
+  },
+  components: {
+    appTimer: Timer
+  }
 }
 </script>
 
@@ -29,15 +49,19 @@ export default {
         font-size: 5rem;
         transition: all 0.2s;
         z-index: 200;
-        background: white;
-        opacity: 0.5;
+        background: #fffcc3;
+        opacity: 0.65;
     }
 
     h1 {
-        font-size: 5rem;
+        font-size: 4rem;
         word-wrap: break-word;
     }
-
+    
+    h2 {
+      font-size: 2rem;
+    }
+    
     .button {
         background: #e5a0a7;
         padding: 0.25rem 0.3rem;

@@ -3,6 +3,7 @@
     <h1>Game Summary</h1>
     <h2>Sets Found: {{ numberSets }}</h2>
     <h2>Score: {{ getScore }}</h2>
+    <h2><app-timer></app-timer></h2>
     <button class="button" @click="exitResults">
       Close
     </button>
@@ -12,6 +13,8 @@
 <script>
 import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
+
+import Timer from "../game/Timer.vue";
 
 export default {
   methods: {
@@ -23,6 +26,9 @@ export default {
   },
   computed: {
     ...mapGetters(["getScore", "numberSets"])
+  },
+  components: {
+    appTimer: Timer
   }
 };
 </script>

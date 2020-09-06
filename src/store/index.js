@@ -10,24 +10,21 @@ export const store = new Vuex.Store({
     sets: [],
     selected: [],
     score: 0,
+    gameTime: 0,
     activeGame: false,
     showTitleScreen: true,
     pausedGame: false,
     showResults: false,
     timerOn: false,
     sidebarOn: true,
-    hintInterval: null
+    hintInterval: null,
+    timerInterval: null
   },
   getters: {
-    getDeck: state => {
-      return state.deck;
-    },
-    getCards: state => {
-      return state.cards;
-    },
-    getGameStatus: state => {
-      return state.activeGame;
-    },
+    getDeck: state => state.deck,
+    getCards: state => state.cards,
+    getGameStatus: state => state.activeGame,
+    getGameTime: state => state.gameTime,
     getPauseStatus: state => state.pausedGame,
     getHintStatus: state => id => {
       return state.cards[id].hint;
@@ -35,15 +32,9 @@ export const store = new Vuex.Store({
     getSelectStatus: state => id => {
       return state.cards[id].selected;
     },
-    getSelected: state => {
-      return state.selected;
-    },
-    getScore: state => {
-      return state.score;
-    },
-    getSidebarSetting: state => {
-      return state.sidebarOn;
-    },
+    getSelected: state => state.selected,
+    getScore: state => state.score,
+    getSidebarSetting: state => state.sidebarOn,
     getTimerSetting: state => {
       return state.timerOn;
     },
@@ -198,8 +189,11 @@ export const store = new Vuex.Store({
       state.sets = [];
       state.selected = [];
       state.score = 0;
+      state.gameTime = 0;
+      state.pausedGame = false;
       state.timerOn = false;
       clearInterval(state.hintInterval);
+      clearInterval(state.timerInterval);
     },
     popCards: state => {
       state.cards.pop();
@@ -224,6 +218,16 @@ export const store = new Vuex.Store({
         }
         clearInterval(state.hintInterval);
       }, 1000);
+    },
+    toggleTimer: state => {
+      state.timerOn = !state.timerOn;
+      if (state.timerOn) {
+        state.timerInterval = setInterval(() => {
+          state.gameTime++;
+        }, 1000);
+      } else {
+        clearInterval(state.timerInterval);
+      }
     },
     changeSelectStatus: (state, id) => {
       state.cards[id].selected = !state.cards[id].selected;
@@ -298,7 +302,6 @@ export const store = new Vuex.Store({
       while (state.cards.length < limit) {
         state.cards.push(state.deck.pop());
       }
-      state.timerOn = true;
     }
   }
 });
