@@ -1,0 +1,6 @@
+click.wav = https://freesound.org/people/chenan55/sounds/506839/
+unclick.wav = https://freesound.org/people/Breviceps/sounds/448080/
+hint.wav = https://freesound.org/people/Breviceps/sounds/450615/
+no-sets.wav = https://freesound.org/people/Breviceps/sounds/450617/
+set.wav = https://freesound.org/people/Breviceps/sounds/450613/
+set-incorrect.wav = https://freesound.org/people/Breviceps/sounds/450616/

@@ -57,7 +57,11 @@ export default {
       cards: [],
       deck: [],
       message: "",
-      messageInterval: null
+      messageInterval: null,
+      setSound: new Audio(require("../../assets/sounds/set.wav")),
+      setWrongSound: new Audio(require("../../assets/sounds/set-incorrect.wav")),
+      hintSound: new Audio((require("../../assets/sounds/hint.wav"))),
+      noSetsSound: new Audio((require("../../assets/sounds/no-sets.wav")))
     };
   },
   methods: {
@@ -84,7 +88,8 @@ export default {
       } else {
         this.displayMessage("There are no hints to give");
       }
-
+      this.hintSound.volume = 0.25;
+      this.hintSound.play()
     },
     startGame: function() {
       this.resetGame();
@@ -127,12 +132,16 @@ export default {
         this.displayMessage(
           setMessages[Math.floor(Math.random() * setMessages.length)]
         );
+        this.setSound.volume = 0.25;
+        this.setSound.play();
         this.updateScore(20);
         this.replaceSet();
         this.clearSelected();
       } else {
         // No Set
         this.displayMessage("Not a valid Set.");
+        this.setWrongSound.volume = 0.25;
+        this.setWrongSound.play();
         this.updateScore(-10);
         this.unSelect();
       }
@@ -140,10 +149,14 @@ export default {
     noSets: function() {
       if (this.anySets) {
         this.displayMessage("There is a set on the board.");
+        this.setWrongSound.volume = 0.25;
+        this.setWrongSound.play();
         this.updateScore(-5);
       } else {
         if (this.numberDeck > 0) {
           this.addThree();
+          this.noSetsSound.volume = 0.25;
+          this.noSetsSound.play();
         } else {
           this.updateScore(300);
           this.displayMessage("Congratulations! You found all the Sets!!!");

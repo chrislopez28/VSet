@@ -22,7 +22,9 @@ export default {
   props: ["card", "index"],
   data: function() {
     return {
-      toggle: true
+      toggle: true,
+      selectSound: new Audio(require("../../assets/sounds/click.wav")),
+      unselectSound: new Audio(require("../../assets/sounds/unclick.wav"))
     };
   },
   methods: {
@@ -31,15 +33,17 @@ export default {
       this.changeSelectStatus(this.index);
 
       if (this.card.selected) {
+        this.selectSound.play();
         this.addSelected(this.index);
       } else {
+        this.unselectSound.volume = 0.1
+        this.unselectSound.play();
         this.removeSelected(this.index);
       }
     }
   },
   watch: {
     card: function() {
-      console.log("Hi!");
       this.toggle = !this.toggle;
     }
   },

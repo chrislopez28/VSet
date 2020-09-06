@@ -114,7 +114,6 @@ export const store = new Vuex.Store({
                   state.cards[j].pattern != state.cards[k].pattern &&
                   state.cards[i].pattern != state.cards[k].pattern))
             ) {
-              console.log(i, j, k);
               return true;
             }
           }

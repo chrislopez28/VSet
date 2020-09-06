@@ -13,7 +13,7 @@
                 <h2>How to Play</h2>
                 <p>
                     The objective of VSet is to find <b><i>"sets"</i></b> until there are no more
-                    sets possible sets on the game board. Sets are combinations of <b>3 cards</b> 
+                    sets on the game board. Sets are combinations of <b>3 cards</b> 
                     where each of the 4 properties are either all <b>the same</b> or all <b>different</b>.
                 </p>
                 <p>
