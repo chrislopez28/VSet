@@ -4,3 +4,6 @@ hint.wav = https://freesound.org/people/Breviceps/sounds/450615/
 no-sets.wav = https://freesound.org/people/Breviceps/sounds/450617/
 set.wav = https://freesound.org/people/Breviceps/sounds/450613/
 set-incorrect.wav = https://freesound.org/people/Breviceps/sounds/450616/
+deal.wav = https://freesound.org/people/Breviceps/sounds/447918/
+applause.wav = https://freesound.org/people/Alterr/sounds/209792/ 
+whoosh.wav = https://freesound.org/people/anagar/sounds/267950/

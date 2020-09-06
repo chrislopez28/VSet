@@ -3,7 +3,6 @@
     <div
       v-if="true"
       class="list-group-item card"
-      style="cursor: pointer"
       @click="cardSelected"
       :class="{ select: getSelectStatus(index), hint: getHintStatus(index) }"
     >
@@ -105,149 +104,154 @@ export default {
 </script>
 
 <style scoped>
-
-.card {
-  float: left;
-  padding: 0;
-  border: black 1px solid;
-  border-radius: 10px;
-}
-
-.card img {
-  float: center;
-}
-
-.select {
-  border: orange 1px solid;
-  filter: brightness(85%);
-}
-
-@media (min-width: 320px) {
   .card {
-    height: 87.5px;
-    width: 62.5px;
-    margin: 5px;
-    background: white;
+    float: left;
+    padding: 0;
+    border: black 1px solid;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 8px 0 rgba(154, 209, 230, 0.8), 0 6px 20px 0 rgba(154, 209, 230, 0.81);
   }
 
   .card img {
-    height: 87.5px;
-    width: 62.5px;
-  }
-}
-
-@media (min-width: 480px) {
-  .card {
-    height: 61.25px;
-    width: 43.75px;
-    margin: 2px;
-    background: white;
-  }
-
-  .card img {
-    height: 61.25px;
-    width: 43.75px;
-  }
-}
-
-@media (min-width: 801px) {
-  .card {
-    height: 105px;
-    width: 75px;
-    margin: 5px;
-    border: black 2px solid;
-    background: white;
-  }
-
-  .card img {
-    height: 105px;
-    width: 75px;
+    float: center;
   }
 
   .select {
-    border: orange 2px solid;
-  }
-}
-
-@media (min-width: 801px) and (max-height: 500px) {
-  .card {
-    height: 61.25px;
-    width: 43.75px;
-    margin: 5px;
-    border: black 2px solid;
-    background: white;
+    border: orange 1px solid;
+    filter: brightness(85%);
+    box-shadow: 0 4px 8px 0 rgba(207, 140, 147, 0.8), 0 6px 20px 0 rgba(207, 140, 147, 0.81);
+    /* color: rgb(207, 140, 147); */
   }
 
-  .card img {
-    height: 61.25px;
-    width: 43.75px;
+  @media (min-width: 320px) {
+    .card {
+      height: 87.5px;
+      width: 62.5px;
+      margin: 5px;
+      background: white;
+    }
+
+    .card img {
+      height: 87.5px;
+      width: 62.5px;
+    }
   }
 
-  .select {
-    border: orange 2px solid;
-  }
-}
+  @media (min-width: 480px) {
+    .card {
+      height: 61.25px;
+      width: 43.75px;
+      margin: 2px;
+      background: white;
+    }
 
+    .card img {
+      height: 61.25px;
+      width: 43.75px;
+    }
+  }
 
+  @media (min-width: 801px) {
+    .card {
+      height: 105px;
+      width: 75px;
+      margin: 5px;
+      border: black 2px solid;
+      background: white;
+    }
 
-.hint {
-  animation: shake 1s;
-}
+    .card img {
+      height: 105px;
+      width: 75px;
+    }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
+    .select {
+      border: orange 2px solid;
+    }
+  }
 
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
+  @media (min-width: 801px) and (max-height: 500px) {
+    .card {
+      height: 61.25px;
+      width: 43.75px;
+      margin: 5px;
+      border: black 2px solid;
+      background: white;
+    }
 
-.fade2-leave-active {
-  transition: opacity 0.5s;
-}
+    .card img {
+      height: 61.25px;
+      width: 43.75px;
+    }
 
-.fade2-enter-active {
-  transition: opacity 1s;
-}
+    .select {
+      border: orange 2px solid;
+    }
+  }
 
-.fade2.enter, .fade2-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
+  .hint {
+    animation: shake 1s;
+  }
 
-@keyframes shake {
-  0% {
-    transform: translate(1px, 1px) rotate(0deg);
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
   }
-  10% {
-    transform: translate(-1px, -2px) rotate(-1deg);
+
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
   }
-  20% {
-    transform: translate(-3px, 0px) rotate(1deg);
+
+  .fade2-leave-active {
+    transition: opacity 0.5s;
   }
-  30% {
-    transform: translate(3px, 2px) rotate(0deg);
+
+  .fade2-enter-active {
+    transition: opacity 1s;
   }
-  40% {
-    transform: translate(1px, -1px) rotate(1deg);
+
+  .fade2.enter, .fade2-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
   }
-  50% {
-    transform: translate(-1px, 2px) rotate(-1deg);
+
+  @keyframes shake {
+    0% {
+      transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+      transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+      transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+      transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+      transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+      transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+      transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+      transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+      transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+      transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+      transform: translate(1px, -2px) rotate(-1deg);
+    }
   }
-  60% {
-    transform: translate(-3px, 1px) rotate(0deg);
-  }
-  70% {
-    transform: translate(3px, 1px) rotate(-1deg);
-  }
-  80% {
-    transform: translate(-1px, -1px) rotate(1deg);
-  }
-  90% {
-    transform: translate(1px, 2px) rotate(0deg);
-  }
-  100% {
-    transform: translate(1px, -2px) rotate(-1deg);
-  }
-}
 </style>

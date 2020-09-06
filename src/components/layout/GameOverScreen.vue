@@ -1,6 +1,6 @@
 <template>
   <div class="results">
-    <h1>Results</h1>
+    <h1>Game Summary</h1>
     <h2>Sets Found: {{ numberSets }}</h2>
     <h2>Score: {{ getScore }}</h2>
     <button class="button" @click="exitResults">
@@ -66,6 +66,8 @@ h2 {
   border: 2px solid black;
   border-radius: 0.25rem;
   font-family: "Raleway", sans-serif;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 .button:hover,

@@ -1,6 +1,6 @@
 <template>
   <div class="game">
-    <button class="sidebar-control" @click="toggleSidebar">
+    <button class="sidebar-control" @click="clickSidebarControl">
       <span v-if="getSidebarSetting">x</span>
       <span v-else>&#8594;</span>
     </button>
@@ -61,7 +61,10 @@ export default {
       setSound: new Audio(require("../../assets/sounds/set.wav")),
       setWrongSound: new Audio(require("../../assets/sounds/set-incorrect.wav")),
       hintSound: new Audio((require("../../assets/sounds/hint.wav"))),
-      noSetsSound: new Audio((require("../../assets/sounds/no-sets.wav")))
+      noSetsSound: new Audio((require("../../assets/sounds/no-sets.wav"))),
+      dealSound: new Audio((require("../../assets/sounds/deal.wav"))),
+      applauseSound: new Audio((require("../../assets/sounds/applause.wav"))),
+      sidebarSound: new Audio((require("../../assets/sounds/whoosh.wav")))    
     };
   },
   methods: {
@@ -92,12 +95,15 @@ export default {
       this.hintSound.play()
     },
     startGame: function() {
+      this.dealSound.volume = 0.5;
+      this.dealSound.play();
       this.resetGame();
       this.createDeck();
       this.toggleGameStatus();
     },
     endGame: function() {
       if (confirm("Press OK if you want to quit the current game.")) {
+        this.applauseSound.play();
         this.displayResults();
         this.toggleGameStatus();
       }
@@ -165,6 +171,10 @@ export default {
           this.toggleGameStatus();
         }
       }
+    },
+    clickSidebarControl: function() {
+      this.sidebarSound.play();
+      this.toggleSidebar();
     }
   },
   computed: {
@@ -264,14 +274,6 @@ export default {
     font-family: "Caveat", cursive;
   }
 
-  th {
-    font-family: "Caveat", cursive;
-  }
-
-  tr {
-    font-family: "Raleway", sans-serif;
-  }
-
   .controls {
     max-height: 20vh;
     width: 100%;
@@ -290,11 +292,12 @@ export default {
     border: 2px solid black;
     border-radius: 0.25rem;
     font-family: "Raleway", sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
   .button:hover,
   .button:focus {
-    background: #cf8c93;;
+    background: #cf8c93;
     cursor: pointer;
   }
 
@@ -373,6 +376,46 @@ export default {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+    }
+  }
+
+  .shake {
+    animation: shake 1s;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+      transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+      transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+      transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+      transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+      transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+      transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+      transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+      transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+      transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+      transform: translate(1px, -2px) rotate(-1deg);
     }
   }
 
