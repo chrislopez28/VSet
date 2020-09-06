@@ -61,6 +61,10 @@
                         a different shading (open, striped, solid).
                     </p>
                 </div>
+                <hr>
+                <p>
+                    2020 <a href="https://clopez.me">Chris Lopez</a>
+                </p>
             </section>
         </aside>
     </transition>
