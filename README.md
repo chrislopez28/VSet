@@ -7,7 +7,7 @@ VSet is based on the card game [*Set*](https://en.wikipedia.org/wiki/Set_(card_g
 To play, go here:
 https://chrislopez28.github.io/vset/ 
 
-## Cards
+## Objective
 
 The objective of VSet is to find "sets" until there are no more sets possible sets on the game board. Sets are combinations of 3 cards where each of the 4 properties are either all the same or all different.
 

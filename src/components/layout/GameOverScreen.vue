@@ -1,9 +1,9 @@
 <template>
   <div class="results">
     <h1>Results</h1>
-    <h2>You found {{ numberSets }} SETs!</h2>
+    <h2>Sets Found: {{ numberSets }}</h2>
     <h2>Score: {{ getScore }}</h2>
-    <button @click="exitResults">
+    <button class="button" @click="exitResults">
       Close
     </button>
   </div>
@@ -31,39 +31,47 @@ export default {
 .results {
   position: absolute;
   top: 0;
-  bottom: 0;
   left: 0;
   width: 100%;
-  display: flex;
+  height: 100vh;
+  /* display: flex;
   flex-flow: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   font-size: 5rem;
-  font-weight: 100;
-  letter-spacing: 0.5rem;
   transition: all 0.2s;
   z-index: 200;
-  background: rgb(255, 245, 104);
+  background: white;
+  /* background: #fffcc3; */
   color: black;
+  font-family: 'Raleway', sans-serif;
 }
 
 h1 {
-  font-size: xx-large;
+  font-size: 2rem;
+  text-decoration: underline;
   text-align: center;
-  background: whitesmoke;
-  border-radius: 15px;
-  padding: 40px;
-  font-family: "Caveat", cursive;
 }
 
 h2 {
-  font-size: x-large;
-  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
   text-align: center;
 }
 
-button {
-  font-size: x-large;
+.button {
+  background: #e5a0a7;
+  padding: 0.25rem 0.3rem;
+  margin: 0.1rem;
+  font-size: 1rem;
+  border: 2px solid black;
+  border-radius: 0.25rem;
   font-family: "Raleway", sans-serif;
 }
+
+.button:hover,
+.button:focus {
+  background: #cf8c93;;
+  cursor: pointer;
+}
+
 </style>

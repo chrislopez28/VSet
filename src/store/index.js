@@ -195,6 +195,7 @@ export const store = new Vuex.Store({
       state.selected = [];
       state.score = 0;
       state.timerOn = false;
+      clearInterval(state.hintInterval);
     },
     popCards: state => {
       state.cards.pop();
@@ -214,7 +215,9 @@ export const store = new Vuex.Store({
     changeHintStatus: (state, id) => {
       state.cards[id].hint = true;
       state.hintInterval = setInterval(() => {
-        state.cards[id].hint = false;
+        if (state.cards[id]) {
+          state.cards[id].hint = false;
+        }
         clearInterval(state.hintInterval);
       }, 1000);
     },

@@ -101,40 +101,46 @@ export default {
 </script>
 
 <style scoped>
+
+.card {
+  float: left;
+  padding: 0;
+  border: black 1px solid;
+  border-radius: 10px;
+}
+
+.card img {
+  float: center;
+}
+
+.select {
+  border: orange 1px solid;
+  filter: brightness(85%);
+}
+
 @media (min-width: 320px) {
   .card {
     height: 87.5px;
     width: 62.5px;
-    float: left;
-    padding: 0;
     margin: 5px;
-    border: black 2px solid;
-    border-radius: 10px;
     background: white;
   }
 
   .card img {
-    float: center;
     height: 87.5px;
     width: 62.5px;
   }
 }
 
-
 @media (min-width: 480px) {
   .card {
     height: 61.25px;
     width: 43.75px;
-    float: left;
-    padding: 0;
     margin: 2px;
-    border: black 1px solid;
-    border-radius: 10px;
     background: white;
   }
 
   .card img {
-    float: center;
     height: 61.25px;
     width: 43.75px;
   }
@@ -144,18 +150,18 @@ export default {
   .card {
     height: 105px;
     width: 75px;
-    float: left;
-    padding: 0;
     margin: 5px;
     border: black 2px solid;
-    border-radius: 10px;
     background: white;
   }
 
   .card img {
-    float: center;
     height: 105px;
     width: 75px;
+  }
+
+  .select {
+    border: orange 2px solid;
   }
 }
 
@@ -163,25 +169,22 @@ export default {
   .card {
     height: 61.25px;
     width: 43.75px;
-    float: left;
-    padding: 0;
     margin: 5px;
     border: black 2px solid;
-    border-radius: 10px;
     background: white;
   }
 
   .card img {
-    float: center;
     height: 61.25px;
     width: 43.75px;
   }
+
+  .select {
+    border: orange 2px solid;
+  }
 }
 
-.select {
-  border: orange 2px solid;
-  filter: brightness(85%);
-}
+
 
 .hint {
   animation: shake 1s;

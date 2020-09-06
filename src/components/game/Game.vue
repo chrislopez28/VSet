@@ -20,27 +20,28 @@
           :card="card"
           :index="index"
         >
-          ></app-card
+        </app-card
         >
       </ul>
     </div>
 
-    <div class="controls">
-      <div v-show="getGameStatus" class="stat-bar">
-        <button @click="noSets" class="button">No Sets</button>
-        <button @click="getHint" class="button">Hint</button>
-        <button class="button">Pause</button>
-        <button @click="endGame" class="button">Quit</button>
+    <div v-show="getGameStatus" class="controls">
+      <div class="stat-bar">
+        <div class="button-bar">
+          <button @click="noSets" class="button">No Sets</button>
+          <button @click="getHint" class="button">Hint</button>
+          <button class="button">Pause</button>
+          <button @click="endGame" class="button">Quit</button>
+        </div>
       </div>
-      <div v-show="getGameStatus" class="score-bar">
-        <div
-          style="display: inline-block; font-size: x-large; margin-left: 10px;"
-        >
+      <div class="score-bar">
+        <div>
           Score: {{ getScore }} | Sets: {{ numberSets }} |
           <appTimer></appTimer>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -76,10 +77,14 @@ export default {
       "toggleSidebar"
     ]),
     getHint: function() {
-      const hintIndex = Math.floor(Math.random() * 3);
-      this.changeHintStatus(this.giveHintIndex[hintIndex]);
-      this.updateScore(-5);
-      console.log(this.giveHintIndex[hintIndex]);
+      if (this.giveHintIndex) {
+        const hintIndex = Math.floor(Math.random() * 3);
+        this.changeHintStatus(this.giveHintIndex[hintIndex]);
+        this.updateScore(-5);
+      } else {
+        this.displayMessage("There are no hints to give");
+      }
+
     },
     startGame: function() {
       this.resetGame();
@@ -182,198 +187,180 @@ export default {
 </script>
 
 <style scoped>
-.game {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-}
-
-.sidebar-control {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  z-index: 15;
-  background: #00a5e3;
-  width: 30px;
-  height: 30px;
-  font-family: "Raleway", sans-serif;
-}
-
-.board {
-  float: none;
-  padding: 20px;
-  background: whitesmoke;
-  display: flex;
-  height: 75%;
-  padding-top: auto;
-  padding-bottom: auto;
-  width: 100%;
-  position: relative;
-}
-
-.high-score {
-  width: 500px;
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translate(-50%, -10px);
-  text-align: center;
-}
-
-.main-screen {
-  width: 500px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -10px);
-  text-align: center;
-}
-
-table {
-  width: 100%;
-}
-
-h1 {
-  font-family: "Caveat", cursive;
-}
-
-th {
-  font-family: "Caveat", cursive;
-}
-
-tr {
-  font-family: "Raleway", sans-serif;
-}
-
-.controls {
-  height: 25%;
-  width: 100%;
-  position: absolute;
-  display: fixed;
-  text-align: center;
-  left: 0;
-  bottom: 0;
-  font-family: "Caveat", cursive;
-}
-
-.button {
-  background: #ff5768;
-  padding: 3px;
-  margin: 2px;
-  font-size: large;
-  font-weight: bold;
-  border: 2px solid silver;
-  border-radius: 10px;
-  color: black;
-  font-family: "Caveat", cursive;
-  height: 50px;
-  width: 80px;
-}
-
-.button-new-game {
-  width: 200px;
-  font-size: xx-large;
-  margin: auto;
-}
-
-.button:hover {
-  background: lightgrey;
-}
-
-.button:active {
-  background: lightsteelblue;
-  color: slategrey;
-}
-
-.stat-bar {
-  background: #00a5e3;
-  padding: 2px;
-  text-align: center;
-}
-
-.score-bar {
-  background: #00a5e3;
-  padding: 2px;
-  text-align: center;
-}
-
-.info {
-  background: white;
-  font-size: large;
-}
-
-.stat-panel {
-  font-size: large;
-  padding: 30px;
-  background-color: #ff96c5;
-  color: black;
-  border: 3px solid black;
-  border-radius: 10px;
-  height: 150rem;
-  width: 300rem;
-}
-
-.message-box {
-  padding: 0px;
-  color: black;
-  position: absolute;
-  opacity: 0.75;
-  text-align: center;
-  top: 10px;
-  right: 20px;
-  width: auto;
-  display: flex;
-  flex-flow: column;
-  justify-content: top;
-  align-items: center;
-  font-size: 2rem;
-  font-weight: 100;
-  letter-spacing: 0.5rem;
-  transition: all 0.2s;
-  z-index: 15;
-  font-family: "Raleway", sans-serif;
-}
-
-@media (min-width: 320px) {
-  .cards {
-    width: 360px;
+  .game {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
   }
-}
 
-@media (min-width: 480px) {
-  .cards {
-    width: 360px;
+  .sidebar-control {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0.25rem;
+    left: 0.25rem;
+    z-index: 15;
+    background: #9ad1e6;
+    width: 30px;
+    height: 30px;
+    font-family: "Raleway", sans-serif;
+    border: 2px solid black;
+    border-radius: 0.25rem;
   }
-}
 
-@media (min-width: 801px) {
-  .cards {
-    width: 550px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .sidebar-control:hover,
+  .sidebar-control:active {
+    cursor: pointer;
+    background: #7ab1c7;
   }
-}
 
-@media (min-width: 801px) and (max-height: 500px) {
-  .cards {
-    width: 400px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .board {
+    float: none;
+    padding: 20px;
+    background: whitesmoke;
+    display: flex;
+    height: 75%;
+    padding-top: auto;
+    padding-bottom: auto;
+    width: 100%;
+    position: relative;
   }
-}
+
+  .high-score {
+    width: 500px;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, -10px);
+    text-align: center;
+  }
+
+  .main-screen {
+    display: flex;
+    width: 90%;
+    height: 80%;
+    position: absolute;
+    text-align: center;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  h1 {
+    font-family: "Caveat", cursive;
+  }
+
+  th {
+    font-family: "Caveat", cursive;
+  }
+
+  tr {
+    font-family: "Raleway", sans-serif;
+  }
+
+  .controls {
+    max-height: 20vh;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    font-family: "Raleway", sans-serif;
+  }
+
+  .button {
+    background: #e5a0a7;
+    padding: 0.25rem 0.3rem;
+    margin: 0.1rem;
+    font-size: 1rem;
+    border: 2px solid black;
+    border-radius: 0.25rem;
+    font-family: "Raleway", sans-serif;
+  }
+
+  .button:hover,
+  .button:focus {
+    background: #cf8c93;;
+    cursor: pointer;
+  }
+
+  .button-new-game {
+    width: 15rem;
+    font-size: 3rem;
+    margin: auto;
+  }
+
+  .button-new-game:hover,
+  .button-new-game:active {
+    cursor: pointer;
+  }
+
+  .button-bar {
+    padding: 0.25rem 0;
+    align-items: center;
+    background: #9ad1e6;
+  }
+
+  .score-bar {
+    padding: 0.25rem 0;
+    background: white;
+    text-align: center; 
+    font-size: 1rem; 
+    background: #9ad1e6;
+  }
+
+  .message-box { 
+    text-align: center;
+    color: black;
+    position: absolute;
+    opacity: 0.85;
+    width: 100vw;
+    top: 1rem;
+    font-size: 1.5rem;
+    transition: all 0.2s;
+    z-index: 15;
+    font-family: "Raleway", sans-serif;
+  }
+
+  @media (min-width: 320px) {
+    .cards {
+      width: 360px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @media (min-width: 480px) {
+    .cards {
+      width: 360px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @media (min-width: 801px) {
+    .cards {
+      width: 550px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @media (min-width: 801px) and (max-height: 500px) {
+    .cards {
+      width: 400px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
 
 </style>
