@@ -11,8 +11,10 @@
 
     <div class="board">
       <div v-show="!getGameStatus" class="main-screen">
-        <button @click="startGame" class="button button-new-game">Play!</button>
+        <button @click="startGame" class="button button-new-game">Play!</button> <br />
+        <button @click="toggleHighScores" class="button button-new-game">High Scores</button>
       </div>
+
       <ul v-show="getGameStatus" class="cards">
         <app-card
           v-for="(card, index) in getCards"
@@ -81,6 +83,7 @@ export default {
       "toggleTimer",
       "updateScore",
       "displayResults",
+      "toggleHighScores",
       "toggleGameStatus",
       "toggleSidebar",
       "togglePauseStatus"
@@ -266,21 +269,16 @@ export default {
     position: relative;
   }
 
-  .high-score {
-    width: 500px;
-    position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translate(-50%, -10px);
-    text-align: center;
-  }
-
   .main-screen {
-    display: flex;
+    /* display: flex;
     width: 90%;
     height: 80%;
     position: absolute;
+    text-align: center; */
+    width: 90%;
+    height: 80%;
     text-align: center;
+    margin: auto;
   }
 
   table {
@@ -320,8 +318,8 @@ export default {
 
   .button-new-game {
     width: 15rem;
-    font-size: 3rem;
-    margin: auto;
+    font-size: 2rem;
+    margin: 1rem auto;
   }
 
   .button-new-game:hover,

@@ -9,10 +9,23 @@ export const store = new Vuex.Store({
     cards: [],
     sets: [],
     selected: [],
+    highScores: [
+      {
+        "name": "Steve",
+        "score": "940",
+        "time": "141"
+      },
+      {
+        "name": "Bob",
+        "score": "920",
+        "time": "243"
+      }
+    ],
     score: 0,
     gameTime: 0,
     activeGame: false,
     showTitleScreen: true,
+    showHighScores: false,
     pausedGame: false,
     showResults: false,
     timerOn: false,
@@ -25,6 +38,7 @@ export const store = new Vuex.Store({
     getCards: state => state.cards,
     getGameStatus: state => state.activeGame,
     getGameTime: state => state.gameTime,
+    getHighScores: state => state.highScores,
     getPauseStatus: state => state.pausedGame,
     getHintStatus: state => id => {
       return state.cards[id].hint;
@@ -170,6 +184,9 @@ export const store = new Vuex.Store({
     },
     displayResults: state => {
       state.showResults = true;
+    },
+    toggleHighScores: state => {
+      state.showHighScores = !state.showHighScores;
     },
     closeResults: state => {
       state.showResults = false;
