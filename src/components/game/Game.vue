@@ -270,11 +270,6 @@ export default {
   }
 
   .main-screen {
-    /* display: flex;
-    width: 90%;
-    height: 80%;
-    position: absolute;
-    text-align: center; */
     width: 90%;
     height: 80%;
     text-align: center;

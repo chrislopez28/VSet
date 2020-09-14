@@ -202,8 +202,7 @@ export default {
     transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
     }
     .slide-enter, 
-    .slide-leave-to
-    /* .slide-fade-leave-active below version 2.1.8 */ {
+    .slide-leave-to {
     transform: translateX(-240px);
     }
 

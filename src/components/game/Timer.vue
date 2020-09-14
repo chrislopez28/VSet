@@ -1,5 +1,5 @@
 <template>
-  <span>
+  <span class="timer">
     Time: <span>{{ minutes }}:{{ seconds }}</span>
   </span>
 </template>

@@ -40,15 +40,10 @@ export default {
   left: 0;
   width: 100%;
   height: 100vh;
-  /* display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center; */
   font-size: 5rem;
   transition: all 0.2s;
   z-index: 200;
   background: white;
-  /* background: #fffcc3; */
   color: black;
   font-family: 'Raleway', sans-serif;
 }
