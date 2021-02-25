@@ -43,7 +43,7 @@ export default {
   font-size: 5rem;
   transition: all 0.2s;
   z-index: 200;
-  background: white;
+  background-color: whitesmoke;
   color: black;
   font-family: 'Raleway', sans-serif;
 }
