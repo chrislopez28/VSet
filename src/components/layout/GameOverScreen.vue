@@ -45,7 +45,7 @@ export default {
   z-index: 200;
   background-color: whitesmoke;
   color: black;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 h1 {
@@ -72,8 +72,7 @@ h2 {
 
 .button:hover,
 .button:focus {
-  background: #cf8c93;;
+  background: #cf8c93;
   cursor: pointer;
 }
-
 </style>

@@ -18,7 +18,6 @@ import { mapGetters } from "vuex";
 import Game from "./components/game/Game.vue";
 
 import GameOverScreen from "./components/layout/GameOverScreen.vue";
-import HighScores from "./components/layout/HighScores.vue";
 import Sidebar from "./components/layout/Sidebar.vue";
 import TitleScreen from "./components/layout/TitleScreen.vue";
 import PauseScreen from "./components/layout/PauseScreen.vue";
@@ -28,15 +27,12 @@ export default {
   components: {
     appGame: Game,
     appGameOver: GameOverScreen,
-    appHighScores: HighScores,
     appSidebar: Sidebar,
     appTitleScreen: TitleScreen,
     appPause: PauseScreen
   },
   computed: {
-    ...mapGetters([
-      "getPauseStatus"
-    ])
+    ...mapGetters(["getPauseStatus"])
   }
 };
 </script>

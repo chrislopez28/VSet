@@ -9,15 +9,15 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters([
-      "getTimerSetting",
-      "getGameTime"
-      ]),
+    ...mapGetters(["getTimerSetting", "getGameTime"]),
     minutes: function() {
-      return Math.floor(this.getGameTime / 60)
+      return Math.floor(this.getGameTime / 60);
     },
     seconds: function() {
-      return ((this.getGameTime - this.minutes * 60) < 10 ? '0' : '') + (this.getGameTime - this.minutes * 60);
+      return (
+        (this.getGameTime - this.minutes * 60 < 10 ? "0" : "") +
+        (this.getGameTime - this.minutes * 60)
+      );
     }
   }
 };

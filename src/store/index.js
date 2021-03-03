@@ -11,14 +11,14 @@ export const store = new Vuex.Store({
     selected: [],
     highScores: [
       {
-        "name": "Steve",
-        "score": "940",
-        "time": "141"
+        name: "Steve",
+        score: "940",
+        time: "141"
       },
       {
-        "name": "Bob",
-        "score": "920",
-        "time": "243"
+        name: "Bob",
+        score: "920",
+        time: "243"
       }
     ],
     score: 0,

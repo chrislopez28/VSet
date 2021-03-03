@@ -51,7 +51,7 @@ import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
 
 export default {
-  data: function () {
+  data: function() {
     return {
       cards: [],
       deck: [],
@@ -65,7 +65,7 @@ export default {
       noSetsSound: new Audio(require("../../assets/sounds/no-sets.wav")),
       dealSound: new Audio(require("../../assets/sounds/deal.wav")),
       applauseSound: new Audio(require("../../assets/sounds/applause.wav")),
-      sidebarSound: new Audio(require("../../assets/sounds/whoosh.wav")),
+      sidebarSound: new Audio(require("../../assets/sounds/whoosh.wav"))
     };
   },
   methods: {
@@ -85,9 +85,9 @@ export default {
       "toggleHighScores",
       "toggleGameStatus",
       "toggleSidebar",
-      "togglePauseStatus",
+      "togglePauseStatus"
     ]),
-    getHint: function () {
+    getHint: function() {
       if (this.giveHintIndex) {
         const hintIndex = Math.floor(Math.random() * 3);
         this.changeHintStatus(this.giveHintIndex[hintIndex]);
@@ -98,7 +98,7 @@ export default {
       this.hintSound.volume = 0.25;
       this.hintSound.play();
     },
-    startGame: function () {
+    startGame: function() {
       this.dealSound.volume = 0.5;
       this.dealSound.play();
       this.resetGame();
@@ -106,11 +106,11 @@ export default {
       this.toggleGameStatus();
       this.toggleTimer();
     },
-    pauseGame: function () {
+    pauseGame: function() {
       this.togglePauseStatus();
       this.toggleTimer();
     },
-    endGame: function () {
+    endGame: function() {
       if (confirm("Press OK if you want to quit the current game.")) {
         this.applauseSound.play();
         this.displayResults();
@@ -118,21 +118,21 @@ export default {
         this.toggleTimer();
       }
     },
-    unSelect: function () {
-      this.getSelected.forEach((index) => {
+    unSelect: function() {
+      this.getSelected.forEach(index => {
         this.changeSelectStatus(index);
         // card.selected = !card.selected;
       });
       this.clearSelected();
     },
-    displayMessage: function (msg) {
+    displayMessage: function(msg) {
       this.message = msg;
       this.messageInterval = setInterval(() => {
         this.message = "";
         clearInterval(this.messageInterval);
       }, 2000);
     },
-    checkIfSet: function () {
+    checkIfSet: function() {
       const setMessages = [
         "Set!",
         "Excellent!",
@@ -140,7 +140,7 @@ export default {
         "You're doing great!",
         "Well done!",
         "Well met!",
-        "Outstanding!",
+        "Outstanding!"
       ];
 
       if (this.isSet) {
@@ -162,7 +162,7 @@ export default {
         this.unSelect();
       }
     },
-    noSets: function () {
+    noSets: function() {
       if (this.anySets) {
         this.displayMessage("There is a set on the board.");
         this.setWrongSound.volume = 0.25;
@@ -182,10 +182,10 @@ export default {
         }
       }
     },
-    clickSidebarControl: function () {
+    clickSidebarControl: function() {
       this.sidebarSound.play();
       this.toggleSidebar();
-    },
+    }
   },
   computed: {
     ...mapGetters([
@@ -200,23 +200,23 @@ export default {
       "numberSelected",
       "numberDeck",
       "numberSets",
-      "isSet",
+      "isSet"
     ]),
-    cardCount: function () {
+    cardCount: function() {
       return this.numberSelected;
-    },
+    }
   },
   watch: {
-    cardCount: function (newCount) {
+    cardCount: function(newCount) {
       if (newCount == 3) {
         this.checkIfSet();
       }
-    },
+    }
   },
   components: {
     appCard: Card,
-    appTimer: Timer,
-  },
+    appTimer: Timer
+  }
 };
 </script>
 
@@ -361,7 +361,6 @@ h1 {
   transform: translate(-50%, -50%);
 }
 
-
 @media (min-width: 480px) {
   .cards {
     width: 360px;
@@ -379,7 +378,6 @@ h1 {
     width: 400px;
   }
 }
-
 
 /* ---Animations=== */
 
