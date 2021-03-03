@@ -9,7 +9,10 @@
           <a href="https://en.wikipedia.org/wiki/Set_(card_game)"
             ><i>card game Set</i></a
           >. Code for this app is available on
-          <a href="https://github.com/chrislopez28/vset" target="_blank"
+          <a
+            href="https://github.com/chrislopez28/vset"
+            target="_blank"
+            rel="noopener noreferrer"
             >Github</a
           >.
         </p>
@@ -113,7 +116,15 @@
           </p>
         </div>
         <hr />
-        <p>2020 <a href="https://github.com/chrislopez28">Chris Lopez</a></p>
+        <p>
+          2020
+          <a
+            href="https://github.com/chrislopez28"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Chris Lopez</a
+          >
+        </p>
       </section>
     </aside>
   </transition>
