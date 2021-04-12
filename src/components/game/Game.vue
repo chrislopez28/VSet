@@ -5,9 +5,7 @@
       <span v-else>&#8594;</span>
     </button>
 
-    <div class="message-box">
-      {{ message }}
-    </div>
+    <appMessage :message="message" />
 
     <div class="board">
       <div v-show="!getGameStatus" class="main-screen">
@@ -15,13 +13,13 @@
       </div>
 
       <ul v-show="getGameStatus" class="cards">
-        <app-card
+        <appCard
           v-for="(card, index) in getCards"
           :key="index"
           :card="card"
           :index="index"
         >
-        </app-card>
+        </appCard>
       </ul>
     </div>
 
@@ -35,10 +33,8 @@
         </div>
       </div>
       <div class="score-bar">
-        <div>
-          Score: {{ getScore }} | Sets: {{ numberSets }} |
-          <appTimer />
-        </div>
+        Score: {{ getScore }} | Sets: {{ numberSets }} |
+        <appTimer />
       </div>
     </div>
   </div>
@@ -46,6 +42,7 @@
 
 <script>
 import Card from "./Card.vue";
+import Message from "./Message.vue";
 import Timer from "./Timer.vue";
 import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
@@ -215,6 +212,7 @@ export default {
   },
   components: {
     appCard: Card,
+    appMessage: Message,
     appTimer: Timer
   }
 };
@@ -337,19 +335,6 @@ h1 {
   text-align: center;
   font-size: 1rem;
   background: #9ad1e6;
-}
-
-.message-box {
-  text-align: center;
-  color: black;
-  position: absolute;
-  opacity: 0.85;
-  width: 100vw;
-  top: 1rem;
-  font-size: 1.5rem;
-  transition: all 0.2s;
-  z-index: 15;
-  font-family: "Raleway", sans-serif;
 }
 
 .cards {

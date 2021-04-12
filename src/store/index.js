@@ -1,6 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import Card from "../lib/Card";
+import shuffle from "../lib/shuffle";
+
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
@@ -23,6 +26,7 @@ export const store = new Vuex.Store({
     ],
     score: 0,
     gameTime: 0,
+    timeLastSet: 0,
     activeGame: false,
     showTitleScreen: true,
     showHighScores: false,
@@ -206,9 +210,10 @@ export const store = new Vuex.Store({
       state.sets = [];
       state.selected = [];
       state.score = 0;
-      state.gameTime = 0;
-      state.pausedGame = false;
       state.timerOn = false;
+      state.gameTime = 0;
+      state.timeLastSet = 0;
+      state.pausedGame = false;
       clearInterval(state.hintInterval);
       clearInterval(state.timerInterval);
     },
@@ -280,18 +285,6 @@ export const store = new Vuex.Store({
       state.score = 0;
       state.timerOn = false;
 
-      class Card {
-        constructor(id, shape, color, number, pattern) {
-          this.id = id;
-          this.shape = shape;
-          this.color = color;
-          this.number = number;
-          this.pattern = pattern;
-          this.selected = false;
-          this.hint = false;
-        }
-      }
-
       let cardID = 0;
       for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
@@ -301,14 +294,6 @@ export const store = new Vuex.Store({
               cardID += 1;
             }
           }
-        }
-      }
-
-      // shuffle function from https://javascript.info/task/shuffle
-      function shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
         }
       }
 
