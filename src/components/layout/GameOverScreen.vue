@@ -14,7 +14,7 @@
 import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
 
-import Timer from "../game/Timer.vue";
+import Timer from "../game/elements/Timer.vue";
 
 export default {
   methods: {

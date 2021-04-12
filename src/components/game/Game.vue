@@ -33,7 +33,8 @@
         </div>
       </div>
       <div class="score-bar">
-        Score: {{ getScore }} | Sets: {{ numberSets }} |
+        <appScore :score="getScore" :numberSets="numberSets" />
+        <!-- Score: {{ getScore }} | Sets: {{ numberSets }} | -->
         <appTimer />
       </div>
     </div>
@@ -42,8 +43,9 @@
 
 <script>
 import Card from "./Card.vue";
-import Message from "./Message.vue";
-import Timer from "./Timer.vue";
+import Message from "./elements/Message.vue";
+import Score from "./elements/Score.vue";
+import Timer from "./elements/Timer.vue";
 import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
 
@@ -213,6 +215,7 @@ export default {
   components: {
     appCard: Card,
     appMessage: Message,
+    appScore: Score,
     appTimer: Timer
   }
 };
@@ -234,8 +237,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* text-align: center;
-    margin: auto; */
 }
 
 .paused {

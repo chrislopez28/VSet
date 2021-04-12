@@ -1,13 +1,13 @@
 <template>
-    <div class="message-box">
-      {{ message }}
-    </div>
+  <div class="message-box">
+    {{ message }}
+  </div>
 </template>
 
 <script>
 export default {
-    props: ["message"]
-}
+  props: ["message"]
+};
 </script>
 
 <style scoped>
