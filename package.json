@@ -25,7 +25,9 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-vue": "^6.2.2",
     "node-forge": ">=0.10.0",
+    "postcss": ">=8.2.10",
     "prettier": "^1.19.1",
+    "ssri": ">=6.0.2",
     "vue-template-compiler": "^2.6.12"
   }
 }
