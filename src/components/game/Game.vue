@@ -33,7 +33,11 @@
         </div>
       </div>
       <div class="score-bar">
-        <appScore :score="getScore" :numberSets="numberSets" />
+        <appScore
+          :score="getScore"
+          :cardsLeft="getNumberCardsLeft"
+          :numberSets="numberSets"
+        />
         <!-- Score: {{ getScore }} | Sets: {{ numberSets }} | -->
         <appTimer />
       </div>
@@ -157,7 +161,7 @@ export default {
         this.displayMessage("Not a valid Set.");
         this.setWrongSound.volume = 0.25;
         this.setWrongSound.play();
-        this.updateScore(-10);
+        this.updateScore(-2);
         this.unSelect();
       }
     },
@@ -174,10 +178,12 @@ export default {
           this.noSetsSound.play();
         } else {
           this.updateScore(300);
+          this.applauseSound.play();
           this.displayMessage("Congratulations! You found all the Sets!!!");
           alert("Congratulations! You found all the Sets!!!");
           this.displayResults();
           this.toggleGameStatus();
+          this.toggleTimer();
         }
       }
     },
@@ -191,6 +197,7 @@ export default {
       "anySets",
       "getCards",
       "getGameStatus",
+      "getNumberCardsLeft",
       "getPauseStatus",
       "getSidebarSetting",
       "getScore",

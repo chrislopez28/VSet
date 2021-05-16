@@ -43,6 +43,7 @@ export const store = new Vuex.Store({
     getGameStatus: state => state.activeGame,
     getGameTime: state => state.gameTime,
     getHighScores: state => state.highScores,
+    getNumberCardsLeft: state => state.deck.length,
     getPauseStatus: state => state.pausedGame,
     getHintStatus: state => id => {
       return state.cards[id].hint;

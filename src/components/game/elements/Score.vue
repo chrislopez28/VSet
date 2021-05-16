@@ -1,9 +1,12 @@
 <template>
-  <span>Score: {{ score }} | Sets: {{ numberSets }} |</span>
+  <span
+    >Score: {{ score }} | Sets: {{ numberSets }} | Cards Left:
+    {{ cardsLeft }} |</span
+  >
 </template>
 
 <script>
 export default {
-  props: ["numberSets", "score"]
+  props: ["cardsLeft", "numberSets", "score"]
 };
 </script>

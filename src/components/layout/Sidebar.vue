@@ -17,17 +17,17 @@
           >.
         </p>
       </section>
-      <section class="rules">
+      <section class="scoring">
         <h2>How to Play</h2>
         <p>
           The objective of VSet is to find <b><i>"sets"</i></b> until there are
           no more sets on the game board. Sets are combinations of
-          <b>3 cards</b> where each of the 4 properties are either all
-          <b>the same</b> or all <b>different</b>.
+          <b>3 cards</b> where each of the 4 properties are either
+          <b>all the same</b> or <b>all different</b>.
         </p>
         <p>
-          Each card is characterized by
-          <b>4 properties</b>:
+          The
+          <b>4 properties</b> of each card are:
         </p>
         <ul>
           <li><u>Number</u>: 1, 2, or 3</li>
@@ -35,8 +35,38 @@
           <li><u>Shading</u>: Solid, Striped, or Open</li>
           <li><u>Color</u>: Green, Red, or Purple</li>
         </ul>
+        <h3>Gameplay</h3>
+        <p>
+          There are 81 cards in the deck. 12 cards are initially dealt on the
+          game board. Click on cards to select/unselect. When you select three
+          cards, the game will check if those 3 cards are a set. If it's a set,
+          you'll be awarded points and those 3 cards will be replaced if there
+          are any cards left in the deck. If it's not a set you'll get a penalty
+          and can try again.
+        </p>
+        <h3>Scoring</h3>
+        <p>
+          Points are awarded as follows:
+        </p>
+        <ul>
+          <li>Set: 20 points</li>
+          <li>Complete Game: 300 points</li>
+          <li>Incorrect Set: -2 points</li>
+          <li>Hint: -5 points</li>
+        </ul>
+        <h3>No Sets</h3>
+        <p>
+          If there are no sets on the board, click on the "No Sets" button and 3
+          more cards will be added to the game board.
+        </p>
+        <h3>Game Ending</h3>
+        <p>
+          If there are no more sets and no more cards left in the deck, you've
+          found all the sets! Click on the "No Sets" button to end the game.
+        </p>
       </section>
       <section class="examples">
+        <h2>Examples</h2>
         <div class="card-example-container">
           <h3>Example 1:</h3>
           <div class="card-example">
@@ -117,9 +147,18 @@
         </div>
         <hr />
         <p>
-          2020
+          Code for this app can be found on
           <a
-            href="https://github.com/chrislopez28"
+            href="https://github.com/chrislopez28/vset"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Github</a
+          >.
+        </p>
+        <p>
+          2021
+          <a
+            href="https://chrislopez.page"
             target="_blank"
             rel="noopener noreferrer"
             >Chris Lopez</a
